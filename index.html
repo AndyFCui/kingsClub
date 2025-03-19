@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kings Club - 未来冒险与慈善</title>
-    <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="stylesheet" href="./src/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -23,6 +23,22 @@
 
         <!-- 主页部分 -->
         <section id="home" class="hero">
+            <div class="slideshow">
+                <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1519904981063-b0cf448d479e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')"></div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1507034589631-9433cc6bc453?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')"></div>
+                <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1533240332313-0db49b459ad6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80')"></div>
+                <button class="slide-arrow prev-arrow">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="slide-arrow next-arrow">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="slide-indicators">
+                    <span class="indicator active"></span>
+                    <span class="indicator"></span>
+                    <span class="indicator"></span>
+                </div>
+            </div>
             <div class="hero-content">
                 <h1>欢迎来到 Kings Club</h1>
                 <p>探索未来 • 传递温暖</p>
@@ -38,19 +54,25 @@
             <h2>极限冒险</h2>
             <div class="adventure-grid">
                 <div class="adventure-card">
-                    <img src="src/res/images/adventure1.jpg" alt="冒险活动1">
-                    <h3>极限攀岩</h3>
-                    <p>挑战自我，突破极限</p>
+                    <img src="https://images.unsplash.com/photo-1522163182402-834f871fd851?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="极限攀岩">
+                    <div class="content">
+                        <h3>极限攀岩</h3>
+                        <p>挑战自我，突破极限</p>
+                    </div>
                 </div>
                 <div class="adventure-card">
-                    <img src="src/res/images/adventure2.jpg" alt="冒险活动2">
-                    <h3>深海探索</h3>
-                    <p>探索神秘海洋世界</p>
+                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="深海探索">
+                    <div class="content">
+                        <h3>深海探索</h3>
+                        <p>探索神秘海洋世界</p>
+                    </div>
                 </div>
                 <div class="adventure-card">
-                    <img src="src/res/images/adventure3.jpg" alt="冒险活动3">
-                    <h3>荒野求生</h3>
-                    <p>体验原始生存挑战</p>
+                    <img src="https://images.unsplash.com/photo-1533873984035-25970ab07461?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="荒野求生">
+                    <div class="content">
+                        <h3>荒野求生</h3>
+                        <p>体验原始生存挑战</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -60,16 +82,25 @@
             <h2>慈善项目</h2>
             <div class="charity-content">
                 <div class="charity-card">
-                    <h3>教育援助</h3>
-                    <p>为偏远地区儿童提供教育支持</p>
+                    <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="教育援助">
+                    <div class="content">
+                        <h3>教育援助</h3>
+                        <p>为偏远地区儿童提供教育支持</p>
+                    </div>
                 </div>
                 <div class="charity-card">
-                    <h3>环境保护</h3>
-                    <p>致力于生态环境保护</p>
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="环境保护">
+                    <div class="content">
+                        <h3>环境保护</h3>
+                        <p>致力于生态环境保护</p>
+                    </div>
                 </div>
                 <div class="charity-card">
-                    <h3>医疗救助</h3>
-                    <p>为需要帮助的人提供医疗援助</p>
+                    <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="医疗救助">
+                    <div class="content">
+                        <h3>医疗救助</h3>
+                        <p>为需要帮助的人提供医疗援助</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -91,6 +122,6 @@
             <p>&copy; 2024 Kings Club. All rights reserved.</p>
         </footer>
     </div>
-    <script src="src/js/script.js"></script>
+    <script src="./src/js/script.js"></script>
 </body>
 </html> 
