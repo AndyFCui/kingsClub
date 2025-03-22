@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="/images/logo.png" alt="Kings Club Logo">
+            </div>
+            <div class="nav-links">
+                <a href="#home">首页</a>
+                <a href="#about">关于我们</a>
+                <a href="#global">全球业务</a>
+                <a href="#china">中国业务</a>
+                <a href="#contact">联系我们</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主页轮播 -->
+    <section id="home" class="hero-slider">
+        <div class="slider-container">
+            <div class="slide active">
+                <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="极限冒险">
+                <div class="slide-content">
+                    <h1>极限冒险</h1>
+                    <p>探索世界的无限可能</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="慈善公益">
+                <div class="slide-content">
+                    <h1>慈善公益</h1>
+                    <p>用爱心温暖世界</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="真人直播秀">
+                <div class="slide-content">
+                    <h1>真人直播秀</h1>
+                    <p>精彩纷呈的互动体验</p>
+                </div>
+            </div>
+            <button class="slider-arrow prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-arrow next"><i class="fas fa-chevron-right"></i></button>
+            <div class="slider-indicators"></div>
+        </div>
+    </section>
+
+    <!-- 特色板块 -->
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card coming-soon-card">
+                    <div class="coming-soon-overlay">
+                        <div class="coming-soon-content">
+                            <h3>冒险体验</h3>
+                            <div class="coming-soon-text">Coming Soon</div>
+                        </div>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="冒险体验">
+                </div>
+                <div class="feature-card coming-soon-card">
+                    <div class="coming-soon-overlay">
+                        <div class="coming-soon-content">
+                            <h3>慈善项目</h3>
+                            <div class="coming-soon-text">Coming Soon</div>
+                        </div>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="慈善项目">
+                </div>
+                <div class="feature-card coming-soon-card">
+                    <div class="coming-soon-overlay">
+                        <div class="coming-soon-content">
+                            <h3>真人直播秀</h3>
+                            <div class="coming-soon-text">Coming Soon</div>
+                        </div>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="真人直播秀">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>关于我们</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Kings Club 是一家全球领先的娱乐与MCN机构，致力于为全球创作者提供全方位的支持与服务。</p>
+                    <p>我们拥有专业的团队和丰富的行业经验，为创作者提供内容策划、制作、运营、变现等全链条服务。</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="number">1000+</span>
+                        <span class="label">创作者</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="number">500M+</span>
+                        <span class="label">月活用户</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="number">50+</span>
+                        <span class="label">合作伙伴</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 全球业务 -->
+    <section id="global" class="global-section">
+        <div class="container">
+            <h2>全球业务</h2>
+            <div class="office-card">
+                <div class="office-image">
+                    <img src="/images/la-office.jpg" alt="Los Angeles Office">
+                </div>
+                <div class="office-info">
+                    <h3><%= companyInfo.global.name %></h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> <%= companyInfo.global.location %></p>
+                    <p class="description"><%= companyInfo.global.description %></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 中国业务 -->
+    <section id="china" class="china-section">
+        <div class="container">
+            <h2>中国业务</h2>
+            <div class="office-card">
+                <div class="office-image">
+                    <img src="/images/sz-office.jpg" alt="Shenzhen Office">
+                </div>
+                <div class="office-info">
+                    <h3><%= companyInfo.china.name %></h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> <%= companyInfo.china.location %></p>
+                    <p class="description"><%= companyInfo.china.description %></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 社交媒体 -->
+    <section id="social" class="social-section">
+        <div class="container">
+            <h2>关注我们</h2>
+            <div class="social-links">
+                <a href="<%= socialMedia.xiaohongshu %>" class="social-link" target="_blank">
+                    <i class="fas fa-book"></i>
+                    <span>小红书</span>
+                </a>
+                <a href="<%= socialMedia.douyin %>" class="social-link" target="_blank">
+                    <i class="fab fa-tiktok"></i>
+                    <span>抖音</span>
+                </a>
+                <a href="<%= socialMedia.instagram %>" class="social-link" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+                <a href="<%= socialMedia.youtube %>" class="social-link" target="_blank">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Kings Club</h3>
+                    <p>全球领先的娱乐与MCN机构</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">首页</a>
+                    <a href="#about">关于我们</a>
+                    <a href="#global">全球业务</a>
+                    <a href="#china">中国业务</a>
+                    <a href="#contact">联系我们</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kings Club. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+</body>
+</html> 
