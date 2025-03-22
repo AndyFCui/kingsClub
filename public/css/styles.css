@@ -103,7 +103,9 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     color: var(--light-text);
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    padding: 0 20px;
+    z-index: 2;
 }
 
 .slide-content h1 {
@@ -162,42 +164,40 @@ body {
 
 /* 关于我们 */
 .about-section {
-    padding: 5rem 0;
-    background: #f9f9f9;
+    padding: 6rem 0;
+    background: #f8f9fa;
 }
 
 .about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-}
-
-.about-text p {
-    margin-bottom: 1rem;
-    font-size: 1.1rem;
-}
-
-.about-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.stat-item {
+    max-width: 800px;
+    margin: 0 auto;
     text-align: center;
 }
 
-.number {
+.about-text h2 {
     font-size: 2.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    display: block;
+    margin-bottom: 1.5rem;
+    color: #333;
+    position: relative;
+    display: inline-block;
 }
 
-.label {
-    color: var(--text-color);
+.about-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--primary-color);
+}
+
+.about-text p {
     font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+    margin: 0 auto;
 }
 
 /* 办公室卡片 */
@@ -299,6 +299,19 @@ body {
 
 /* 响应式设计 */
 @media (max-width: 768px) {
+    .about-section {
+        padding: 4rem 0;
+    }
+
+    .about-text h2 {
+        font-size: 2rem;
+    }
+
+    .about-text p {
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+
     .nav-links {
         display: none;
     }
@@ -308,16 +321,19 @@ body {
         grid-template-columns: 1fr;
     }
     
-    .about-stats {
-        grid-template-columns: 1fr;
-    }
-    
     .slide-content h1 {
         font-size: 2.5rem;
     }
     
     .social-links {
         flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 576px) {
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }
 
@@ -472,4 +488,163 @@ body {
 
 .coming-soon-card:hover .coming-soon-text {
     color: #fff;
+}
+
+.hero-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 100;
+}
+
+.social-icon {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+    padding: 10px;
+}
+
+.social-icon::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.social-icon i {
+    font-size: 2.8rem;
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.social-icon span {
+    font-size: 1rem;
+    font-weight: 600;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* 悬停效果 */
+.social-icon:hover {
+    transform: translateY(-8px);
+}
+
+.social-icon:hover i {
+    transform: scale(1.15);
+}
+
+.social-icon:hover span {
+    opacity: 1;
+}
+
+/* 平台特定样式 */
+.social-icon.xiaohongshu:hover {
+    color: #fe2c55;
+}
+
+.social-icon.xiaohongshu:hover::before {
+    background: rgba(254, 44, 85, 0.1);
+}
+
+.social-icon.douyin:hover {
+    color: #fff;
+}
+
+.social-icon.douyin:hover i {
+    animation: douyinEffect 1s infinite;
+    text-shadow: 
+        -2px -2px 0 #fe2c55,
+        2px -2px 0 #4DE8F4,
+        -2px 2px 0 #fe2c55,
+        2px 2px 0 #4DE8F4;
+}
+
+.social-icon.instagram:hover {
+    color: #E4405F;
+}
+
+.social-icon.instagram:hover::before {
+    background: rgba(228, 64, 95, 0.1);
+}
+
+.social-icon.youtube:hover {
+    color: #FF0000;
+}
+
+.social-icon.youtube:hover::before {
+    background: rgba(255, 0, 0, 0.1);
+}
+
+@keyframes douyinEffect {
+    0% {
+        text-shadow: 
+            -2px -2px 0 #fe2c55,
+            2px -2px 0 #4DE8F4,
+            -2px 2px 0 #fe2c55,
+            2px 2px 0 #4DE8F4;
+    }
+    50% {
+        text-shadow: 
+            -3px -3px 0 #4DE8F4,
+            3px -3px 0 #fe2c55,
+            -3px 3px 0 #4DE8F4,
+            3px 3px 0 #fe2c55;
+    }
+    100% {
+        text-shadow: 
+            -2px -2px 0 #fe2c55,
+            2px -2px 0 #4DE8F4,
+            -2px 2px 0 #fe2c55,
+            2px 2px 0 #4DE8F4;
+    }
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .hero-social-links {
+        gap: 1.5rem;
+    }
+
+    .social-icon i {
+        font-size: 2.2rem;
+    }
+
+    .social-icon span {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-social-links {
+        gap: 1rem;
+    }
+
+    .social-icon i {
+        font-size: 2rem;
+    }
+
+    .social-icon span {
+        font-size: 0.8rem;
+    }
 } 
