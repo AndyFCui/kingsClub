@@ -23,10 +23,10 @@
                     <a href="#<%= key %>" data-lang="zh"><%= content.nav[key].zh %></a>
                     <a href="#<%= key %>" data-lang="en" style="display: none;"><%= content.nav[key].en %></a>
                 <% }); %>
-                <button id="langToggle" class="lang-toggle">
-                    <span data-lang="zh">EN</span>
-                    <span data-lang="en" style="display: none;">中</span>
-                </button>
+                <div class="lang-toggle" id="langToggle">
+                    <span>中</span>
+                    <span>EN</span>
+                </div>
             </div>
         </div>
     </nav>
@@ -61,6 +61,7 @@
         </div>
     </section>
 
+    
     <!-- 特色板块 -->
     <section class="features-section">
         <div class="container">
@@ -77,60 +78,6 @@
                         <img src="<%= feature.image %>" alt="<%= feature.title.zh %>">
                     </div>
                 <% }); %>
-            </div>
-        </div>
-    </section>
-
-    <!-- 关于我们 -->
-    <section id="about" class="about-section">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 data-lang="zh"><%= content.about.title.zh %></h2>
-                    <h2 data-lang="en" style="display: none;"><%= content.about.title.en %></h2>
-                    <p data-lang="zh"><%= content.about.content.zh %></p>
-                    <p data-lang="en" style="display: none;"><%= content.about.content.en %></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 全球业务 -->
-    <section id="global" class="global-section">
-        <div class="container">
-            <h2 data-lang="zh"><%= content.offices.global.title.zh %></h2>
-            <h2 data-lang="en" style="display: none;"><%= content.offices.global.title.en %></h2>
-            <% content.offices.global.offices.forEach(function(office) { %>
-                <div class="office-card">
-                    <div class="office-image">
-                        <img src="/images/la-office.jpg" alt="Office Image">
-                    </div>
-                    <div class="office-info">
-                        <h3><%= office.name %></h3>
-                        <p class="location"><i class="fas fa-map-marker-alt"></i> <%= office.location %></p>
-                        <p class="description" data-lang="zh"><%= office.description.zh %></p>
-                        <p class="description" data-lang="en" style="display: none;"><%= office.description.en %></p>
-                    </div>
-                </div>
-            <% }); %>
-        </div>
-    </section>
-
-    <!-- 中国业务 -->
-    <section id="china" class="china-section">
-        <div class="container">
-            <h2 data-lang="zh"><%= content.offices.china.title.zh %></h2>
-            <h2 data-lang="en" style="display: none;"><%= content.offices.china.title.en %></h2>
-            <div class="office-card">
-                <div class="office-image">
-                    <img src="/images/sz-office.jpg" alt="Shenzhen Office">
-                </div>
-                <div class="office-info">
-                    <h3><%= content.offices.china.name %></h3>
-                    <p class="location"><i class="fas fa-map-marker-alt"></i> <%= content.offices.china.location %></p>
-                    <p class="description" data-lang="zh"><%= content.offices.china.description.zh %></p>
-                    <p class="description" data-lang="en" style="display: none;"><%= content.offices.china.description.en %></p>
-                </div>
             </div>
         </div>
     </section>
@@ -159,5 +106,6 @@
 
     <script src="/js/main.js"></script>
     <script src="/js/cursor.js"></script>
+    <script src="/js/navigation.js"></script>
 </body>
 </html> 

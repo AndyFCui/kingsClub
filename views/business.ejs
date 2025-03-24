@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content.site.title.zh %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="/images/logo.png" alt="Kings Club Logo">
+            </div>
+            <div class="nav-links">
+                <% Object.keys(content.nav).forEach(function(key) { %>
+                    <a href="/<%= key === 'home' ? '' : key %>" data-lang="zh"><%= content.nav[key].zh %></a>
+                    <a href="/<%= key === 'home' ? '' : key %>" data-lang="en" style="display: none;"><%= content.nav[key].en %></a>
+                <% }); %>
+                <button id="langToggle" class="lang-toggle">
+                    <span data-lang="zh">EN</span>
+                    <span data-lang="en" style="display: none;">中</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 美国业务 -->
+    <section id="global" class="global-section">
+        <div class="container">
+            <h2 data-lang="zh"><%= content.offices.global.title.zh %></h2>
+            <h2 data-lang="en" style="display: none;"><%= content.offices.global.title.en %></h2>
+            <% content.offices.global.offices.forEach(function(office) { %>
+                <div class="office-card">
+                    <div class="office-image">
+                        <img src="/images/la-office.jpg" alt="Office Image">
+                    </div>
+                    <div class="office-info">
+                        <h3><%= office.name %></h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> <%= office.location %></p>
+                        <p class="description" data-lang="zh"><%= office.description.zh %></p>
+                        <p class="description" data-lang="en" style="display: none;"><%= office.description.en %></p>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </section>
+
+    <!-- 中国业务 -->
+    <section id="china" class="china-section">
+        <div class="container">
+            <h2 data-lang="zh"><%= content.offices.china.title.zh %></h2>
+            <h2 data-lang="en" style="display: none;"><%= content.offices.china.title.en %></h2>
+            <div class="office-card">
+                <div class="office-image">
+                    <img src="/images/sz-office.jpg" alt="Shenzhen Office">
+                </div>
+                <div class="office-info">
+                    <h3><%= content.offices.china.name %></h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> <%= content.offices.china.location %></p>
+                    <p class="description" data-lang="zh"><%= content.offices.china.description.zh %></p>
+                    <p class="description" data-lang="en" style="display: none;"><%= content.offices.china.description.en %></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 引入脚本 -->
+    <script src="/js/navigation.js"></script>
+    <script src="/js/cursor.js"></script>
+    <script src="/js/langToggle.js"></script>
+</body>
+</html> 

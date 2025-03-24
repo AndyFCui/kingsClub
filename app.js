@@ -15,14 +15,14 @@ try {
     const rawContent = fs.readFileSync(contentPath, 'utf8');
     content = JSON.parse(rawContent);
     
+    // 验证其他必要的数据结构
+    if (!content.site?.title?.zh) {
+        throw new Error('Missing required data structure in content.json: site.title.zh');
+    }
+    
     // 调试输出
     console.log('Content loaded successfully');
     console.log('Hero slides:', content.hero.slides);
-    
-    // 验证必要的数据结构
-    if (!content.offices?.china?.description?.zh) {
-        throw new Error('Missing required data structure in content.json: offices.china.description.zh');
-    }
 } catch (error) {
     console.error('Error loading content.json:', error);
     process.exit(1); // 如果缺少关键数据，终止服务器
@@ -56,6 +56,15 @@ app.use((req, res, next) => {
 // 路由
 app.get('/', (req, res) => {
     res.render('index', { content });
+});
+
+// 添加业务页面路由
+app.get('/global', (req, res) => {
+    res.render('business', { content });
+});
+
+app.get('/china', (req, res) => {
+    res.render('business', { content });
 });
 
 // 启动服务器

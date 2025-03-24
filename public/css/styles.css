@@ -40,13 +40,15 @@ body {
 
 .navbar .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    gap: 2rem;
 }
 
 .logo {
     display: flex;
     align-items: center;
+    height: 100%;
 }
 
 .logo img {
@@ -55,21 +57,34 @@ body {
     object-fit: contain;
 }
 
-.nav-links {
+.nav-container {
     display: flex;
     align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 0 2rem;
+    height: 60px;
+}
+
+.nav-links {
+    display: flex;
     gap: 2rem;
+    margin-left: 2rem;
+    align-items: center;
+    height: 100%;
 }
 
 .nav-links a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-size: 16px;
+    line-height: 60px;
     color: #fff;
     text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 500;
     position: relative;
     padding: 0.5rem 1rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
 }
 
 /* 添加光标框效果 */
@@ -118,6 +133,47 @@ body {
     text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
     box-shadow: 0 0 15px rgba(0, 247, 255, 0.2);
     background: rgba(0, 247, 255, 0.05);
+}
+
+/* 选中状态的样式 */
+.nav-links a.active {
+    color: #00f7ff;
+    text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+}
+
+.nav-links a.active::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 80%;
+    height: 2px;
+    background: #00f7ff;
+    transform: translateX(-50%);
+    animation: navGlow 2s ease-in-out infinite;
+}
+
+/* 发光动画 */
+@keyframes navGlow {
+    0% {
+        box-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff;
+    }
+    50% {
+        box-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff, 0 0 30px #00f7ff;
+    }
+    100% {
+        box-shadow: 0 0 5px #00f7ff, 0 0 10px #00f7ff;
+    }
+}
+
+/* 保持原有的悬停效果，但调整优先级 */
+.nav-links a:not(.active):hover {
+    color: #00f7ff;
+    transform: translateY(-2px);
+}
+
+.nav-links a:not(.active):hover::before {
+    width: 80%;
 }
 
 /* 轮播图 */
@@ -794,46 +850,43 @@ body {
 }
 
 .lang-toggle {
-    background: transparent;
-    border: 2px solid #00f7ff;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+    margin-left: auto;
+    margin-right: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 4px;
+    width: 85px;
+    height: 34px;
     cursor: pointer;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
     position: relative;
-    overflow: hidden;
 }
 
-.lang-toggle:hover {
-    background: #00f7ff;
-    box-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
-    transform: translateY(-2px);
+.lang-toggle span {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    z-index: 1;
+    line-height: 34px;
+    display: inline-block;
+    padding: 0 8px;
 }
 
 .lang-toggle::before {
-    content: '';
+    content: "";
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 150%;
-    height: 150%;
-    background: radial-gradient(circle, rgba(0, 247, 255, 0.3) 0%, transparent 70%);
-    transform: translate(-50%, -50%) scale(0);
-    transition: transform 0.3s ease;
+    width: 42px;
+    height: 26px;
+    background: #00ffff;
+    border-radius: 20px;
+    left: 4px;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.lang-toggle:hover::before {
-    transform: translate(-50%, -50%) scale(1);
-}
-
-@media (max-width: 768px) {
-    .lang-toggle {
-        margin-left: 10px;
-        padding: 3px 10px;
-        font-size: 0.8rem;
-    }
+.lang-toggle.active::before {
+    left: calc(100% - 46px);
 }
 
 /* 鼠标跟随效果 - 默认在移动端隐藏 */
