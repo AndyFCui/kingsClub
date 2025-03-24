@@ -31,9 +31,11 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    background: var(--dark-bg);
-    z-index: 1000;
     padding: 1rem 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: all 0.3s ease;
 }
 
 .navbar .container {
@@ -53,27 +55,81 @@ body {
     object-fit: contain;
 }
 
-.nav-links a {
-    color: var(--light-text);
-    text-decoration: none;
-    margin-left: 2rem;
-    transition: color 0.3s ease;
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-shadow: 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+/* 添加光标框效果 */
+.nav-links a::before,
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+/* 左上和右上角框 */
+.nav-links a::before {
+    top: 0;
+    left: 0;
+    border-top: 2px solid #00f7ff;
+    border-left: 2px solid #00f7ff;
+    box-shadow: 5px 0 5px -5px #00f7ff,
+                0 5px 5px -5px #00f7ff;
+}
+
+/* 右下和左下角框 */
+.nav-links a::after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 2px solid #00f7ff;
+    border-right: 2px solid #00f7ff;
+    box-shadow: -5px 0 5px -5px #00f7ff,
+                0 -5px 5px -5px #00f7ff;
+}
+
+/* 悬停时显示光标框 */
+.nav-links a:hover::before,
+.nav-links a:hover::after {
+    width: 15px;
+    height: 15px;
+    opacity: 1;
+}
+
+/* 悬停时的发光效果 */
 .nav-links a:hover {
-    color: var(--primary-color);
+    color: #00f7ff;
+    transform: translateY(-2px) scale(1.05);
+    text-shadow: 0 0 10px rgba(0, 247, 255, 0.5);
+    box-shadow: 0 0 15px rgba(0, 247, 255, 0.2);
+    background: rgba(0, 247, 255, 0.05);
 }
 
 /* 轮播图 */
 .hero-slider {
-    height: 100vh;
     position: relative;
+    height: 100vh;
     overflow: hidden;
 }
 
 .slider-container {
-    height: 100%;
     position: relative;
+    height: 100%;
 }
 
 .slide {
@@ -94,6 +150,17 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
+}
+
+.slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
 }
 
 .slide-content {
@@ -164,14 +231,15 @@ body {
 
 /* 关于我们 */
 .about-section {
-    padding: 6rem 0;
+    padding: 2rem 0;
     background: #f8f9fa;
+    text-align: center;
 }
 
-.about-content {
-    max-width: 800px;
+.about-section .container {
+    max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
+    padding: 0 1rem;
 }
 
 .about-text h2 {
@@ -193,41 +261,75 @@ body {
     background: var(--primary-color);
 }
 
-.about-text p {
+.about-description {
+    max-width: 800px;
+    margin: 0 auto 1rem;
     font-size: 1.1rem;
     line-height: 1.8;
     color: #666;
-    margin: 0 auto;
 }
 
 /* 办公室卡片 */
+.global-section,
+.china-section {
+    padding: 2rem 0;
+    background: #f8f9fa;
+}
+
+.global-section .container,
+.china-section .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
 .office-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 3rem;
     align-items: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.office-card:hover {
+    transform: translateY(-5px);
 }
 
 .office-image img {
     width: 100%;
+    height: 300px;
+    object-fit: cover;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .office-info h3 {
+    font-size: 1.8rem;
     color: var(--primary-color);
     margin-bottom: 1rem;
 }
 
 .location {
+    display: flex;
+    align-items: center;
     color: #666;
     margin-bottom: 1rem;
+    font-size: 1.1rem;
 }
 
 .location i {
     margin-right: 0.5rem;
     color: var(--primary-color);
+}
+
+.description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
 }
 
 /* 社交媒体 */
@@ -327,6 +429,25 @@ body {
     
     .social-links {
         flex-wrap: wrap;
+    }
+
+    .office-card {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+
+    .office-image img {
+        height: 200px;
+    }
+
+    .office-info h3 {
+        font-size: 1.5rem;
+    }
+
+    .location,
+    .description {
+        font-size: 1rem;
     }
 }
 
@@ -647,4 +768,86 @@ body {
     .social-icon span {
         font-size: 0.8rem;
     }
+}
+
+.lang-toggle {
+    background: transparent;
+    border: 2px solid #00f7ff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.lang-toggle:hover {
+    background: #00f7ff;
+    box-shadow: 0 0 15px rgba(0, 247, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.lang-toggle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(0, 247, 255, 0.3) 0%, transparent 70%);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s ease;
+}
+
+.lang-toggle:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+@media (max-width: 768px) {
+    .lang-toggle {
+        margin-left: 10px;
+        padding: 3px 10px;
+        font-size: 0.8rem;
+    }
+}
+
+/* 鼠标跟随效果 */
+.cursor-dot {
+    width: 5px;
+    height: 5px;
+    background-color: #00f7ff;
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform 0.15s ease;
+    z-index: 9999;
+}
+
+.cursor-outline {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #00f7ff;
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: transform 0.15s ease;
+    z-index: 9998;
+    box-shadow: 0 0 15px rgba(0, 247, 255, 0.3);
+}
+
+/* 当鼠标悬停在可点击元素上时的效果 */
+a:hover ~ .cursor-dot,
+button:hover ~ .cursor-dot {
+    transform: scale(2);
+    background-color: #00f7ff;
+    box-shadow: 0 0 20px rgba(0, 247, 255, 0.5);
+}
+
+a:hover ~ .cursor-outline,
+button:hover ~ .cursor-outline {
+    transform: scale(1.5);
+    border-color: #00f7ff;
+    box-shadow: 0 0 20px rgba(0, 247, 255, 0.3);
 } 

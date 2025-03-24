@@ -1,0 +1,164 @@
+{
+    "site": {
+        "title": {
+            "zh": "Kings Club - 全球领先的电影科技公司",
+            "en": "Kings Club - Global Leading Film Technology Company"
+        },
+        "description": {
+            "zh": "全球领先的电影科技公司",
+            "en": "Global Leading Film Technology Company"
+        }
+    },
+    "nav": {
+        "home": {
+            "zh": "首页",
+            "en": "Home"
+        },
+        "about": {
+            "zh": "关于我们",
+            "en": "About Us"
+        },
+        "global": {
+            "zh": "美国业务",
+            "en": "Global Business"
+        },
+        "china": {
+            "zh": "中国业务",
+            "en": "China Business"
+        },
+        "contact": {
+            "zh": "联系我们",
+            "en": "Contact Us"
+        }
+    },
+    "hero": {
+        "slides": [
+            {
+                "title": {
+                    "zh": "极限冒险",
+                    "en": "Extreme Adventure"
+                },
+                "description": {
+                    "zh": "探索世界的无限可能",
+                    "en": "Explore Infinite Possibilities"
+                },
+                "image": "/images/banner/IMG_20250226_175358.jpg"
+            },
+            {
+                "title": {
+                    "zh": "慈善公益",
+                    "en": "Charity & Public Welfare"
+                },
+                "description": {
+                    "zh": "用爱心温暖世界",
+                    "en": "Warming the World with Love"
+                },
+                "image": "https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+            },
+            {
+                "title": {
+                    "zh": "真人直播秀",
+                    "en": "Live Show"
+                },
+                "description": {
+                    "zh": "精彩纷呈的互动体验",
+                    "en": "Exciting Interactive Experience"
+                },
+                "image": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+            }
+        ]
+    },
+    "features": [
+        {
+            "title": {
+                "zh": "冒险体验",
+                "en": "Adventure Experience"
+            },
+            "image": "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        },
+        {
+            "title": {
+                "zh": "慈善项目",
+                "en": "Charity Projects"
+            },
+            "image": "https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        },
+        {
+            "title": {
+                "zh": "真人直播秀",
+                "en": "Live Show"
+            },
+            "image": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        }
+    ],
+    "about": {
+        "title": {
+            "zh": "关于我们",
+            "en": "About Us"
+        },
+        "content": {
+            "zh": "Kings Club是一个全球领先的电影科技公司，致力于为观众提供畅快的观影体验与科技服务。我们通过创新的技术和优质的内容，打造沉浸式的观影体验，引领电影科技的未来发展。",
+            "en": "Kings Club is a global leading film technology company dedicated to providing audiences with an enjoyable viewing experience and technological services. Through innovative technology and quality content, we create immersive viewing experiences and lead the future development of film technology."
+        }
+    },
+    "offices": {
+        "global": {
+            "title": {
+                "zh": "美国业务",
+                "en": "US Business"
+            },
+            "offices": [
+                {
+                    "name": "Kings Club",
+                    "location": "Los Angeles, USA",
+                    "description": {
+                        "zh": "全球领先的电影科技公司",
+                        "en": "Global Leading Film Technology Company"
+                    }
+                },
+                {
+                    "name": "Kings Club Boston",
+                    "location": "Boston, USA",
+                    "description": {
+                        "zh": "全球领先的电影科技公司",
+                        "en": "Global Leading Film Technology Company"
+                    }
+                }
+            ]
+        },
+        "china": {
+            "title": {
+                "zh": "中国业务",
+                "en": "China Business"
+            },
+            "name": "给他爱深圳文化有限公司",
+            "location": "深圳, 中国",
+            "description": {
+                "zh": "全球领先的电影科技公司",
+                "en": "Global Leading Film Technology Company"
+            }
+        }
+    },
+    "social": {
+        "xiaohongshu": {
+            "name": "小红书",
+            "icon": "fas fa-book",
+            "url": "https://www.xiaohongshu.com/user/profile/your-profile"
+        },
+        "douyin": {
+            "name": "抖音",
+            "icon": "fab fa-tiktok",
+            "url": "https://www.douyin.com/user/your-profile"
+        },
+        "instagram": {
+            "name": "Instagram",
+            "icon": "fab fa-instagram",
+            "url": "https://www.instagram.com/your-profile"
+        },
+        "youtube": {
+            "name": "YouTube",
+            "icon": "fab fa-youtube",
+            "url": "https://www.youtube.com/your-channel"
+        }
+    }
+} 

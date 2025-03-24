@@ -3,23 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title><%= content.site.title.zh %></title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+    <!-- 添加鼠标跟随元素 -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
     <!-- 导航栏 -->
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <img src="/images/logo.png" alt="Kings Club Logo">
+                <img src="/images/logo/logo_white.png" alt="Kings Club Logo">
             </div>
             <div class="nav-links">
-                <a href="#home">首页</a>
-                <a href="#about">关于我们</a>
-                <a href="#global">全球业务</a>
-                <a href="#china">中国业务</a>
-                <a href="#contact">联系我们</a>
+                <% Object.keys(content.nav).forEach(function(key) { %>
+                    <a href="#<%= key %>" data-lang="zh"><%= content.nav[key].zh %></a>
+                    <a href="#<%= key %>" data-lang="en" style="display: none;"><%= content.nav[key].en %></a>
+                <% }); %>
+                <button id="langToggle" class="lang-toggle">
+                    <span data-lang="zh">EN</span>
+                    <span data-lang="en" style="display: none;">中</span>
+                </button>
             </div>
         </div>
     </nav>
@@ -27,45 +34,27 @@
     <!-- 主页轮播 -->
     <section id="home" class="hero-slider">
         <div class="slider-container">
-            <div class="slide active">
-                <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="极限冒险">
-                <div class="slide-content">
-                    <h1>极限冒险</h1>
-                    <p>探索世界的无限可能</p>
-                    <div class="hero-social-links">
-                        <a href="#" class="social-icon xiaohongshu">
-                            <i class="fas fa-book"></i>
-                            <span>小红书</span>
-                        </a>
-                        <a href="#" class="social-icon douyin">
-                            <i class="fab fa-tiktok"></i>
-                            <span>抖音</span>
-                        </a>
-                        <a href="#" class="social-icon instagram">
-                            <i class="fab fa-instagram"></i>
-                            <span>Instagram</span>
-                        </a>
-                        <a href="#" class="social-icon youtube">
-                            <i class="fab fa-youtube"></i>
-                            <span>YouTube</span>
-                        </a>
+            <% content.hero.slides.forEach(function(slide, index) { %>
+                <div class="slide <%= index === 0 ? 'active' : '' %>">
+                    <img src="<%= slide.image %>" alt="<%= slide.title.zh %>">
+                    <div class="slide-content">
+                        <h1 data-lang="zh"><%= slide.title.zh %></h1>
+                        <h1 data-lang="en" style="display: none;"><%= slide.title.en %></h1>
+                        <p data-lang="zh"><%= slide.description.zh %></p>
+                        <p data-lang="en" style="display: none;"><%= slide.description.en %></p>
+                        <% if (index === 0) { %>
+                            <div class="hero-social-links">
+                                <% Object.entries(content.social).forEach(function([platform, data]) { %>
+                                    <a href="<%= data.url %>" class="social-icon <%= platform %>">
+                                        <i class="<%= data.icon %>"></i>
+                                        <span><%= data.name %></span>
+                                    </a>
+                                <% }); %>
+                            </div>
+                        <% } %>
                     </div>
                 </div>
-            </div>
-            <div class="slide">
-                <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="慈善公益">
-                <div class="slide-content">
-                    <h1>慈善公益</h1>
-                    <p>用爱心温暖世界</p>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="真人直播秀">
-                <div class="slide-content">
-                    <h1>真人直播秀</h1>
-                    <p>精彩纷呈的互动体验</p>
-                </div>
-            </div>
+            <% }); %>
             <button class="slider-arrow prev"><i class="fas fa-chevron-left"></i></button>
             <button class="slider-arrow next"><i class="fas fa-chevron-right"></i></button>
             <div class="slider-indicators"></div>
@@ -76,33 +65,18 @@
     <section class="features-section">
         <div class="container">
             <div class="features-grid">
-                <div class="feature-card coming-soon-card">
-                    <div class="coming-soon-overlay">
-                        <div class="coming-soon-content">
-                            <h3>冒险体验</h3>
-                            <div class="coming-soon-text">Coming Soon</div>
+                <% content.features.forEach(function(feature) { %>
+                    <div class="feature-card coming-soon-card">
+                        <div class="coming-soon-overlay">
+                            <div class="coming-soon-content">
+                                <h3 data-lang="zh"><%= feature.title.zh %></h3>
+                                <h3 data-lang="en" style="display: none;"><%= feature.title.en %></h3>
+                                <div class="coming-soon-text">Coming Soon</div>
+                            </div>
                         </div>
+                        <img src="<%= feature.image %>" alt="<%= feature.title.zh %>">
                     </div>
-                    <img src="https://images.unsplash.com/photo-1526772662000-3f88f10405ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="冒险体验">
-                </div>
-                <div class="feature-card coming-soon-card">
-                    <div class="coming-soon-overlay">
-                        <div class="coming-soon-content">
-                            <h3>慈善项目</h3>
-                            <div class="coming-soon-text">Coming Soon</div>
-                        </div>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="慈善项目">
-                </div>
-                <div class="feature-card coming-soon-card">
-                    <div class="coming-soon-overlay">
-                        <div class="coming-soon-content">
-                            <h3>真人直播秀</h3>
-                            <div class="coming-soon-text">Coming Soon</div>
-                        </div>
-                    </div>
-                    <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="真人直播秀">
-                </div>
+                <% }); %>
             </div>
         </div>
     </section>
@@ -112,8 +86,10 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>关于我们</h2>
-                    <p>Kings Club是一个全球领先的电影科技公司，致力于为观众提供畅快的观影体验与科技服务。我们通过创新的技术和优质的内容，打造沉浸式的观影体验，引领电影科技的未来发展。</p>
+                    <h2 data-lang="zh"><%= content.about.title.zh %></h2>
+                    <h2 data-lang="en" style="display: none;"><%= content.about.title.en %></h2>
+                    <p data-lang="zh"><%= content.about.content.zh %></p>
+                    <p data-lang="en" style="display: none;"><%= content.about.content.en %></p>
                 </div>
             </div>
         </div>
@@ -122,32 +98,38 @@
     <!-- 全球业务 -->
     <section id="global" class="global-section">
         <div class="container">
-            <h2>全球业务</h2>
-            <div class="office-card">
-                <div class="office-image">
-                    <img src="/images/la-office.jpg" alt="Los Angeles Office">
+            <h2 data-lang="zh"><%= content.offices.global.title.zh %></h2>
+            <h2 data-lang="en" style="display: none;"><%= content.offices.global.title.en %></h2>
+            <% content.offices.global.offices.forEach(function(office) { %>
+                <div class="office-card">
+                    <div class="office-image">
+                        <img src="/images/la-office.jpg" alt="Office Image">
+                    </div>
+                    <div class="office-info">
+                        <h3><%= office.name %></h3>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> <%= office.location %></p>
+                        <p class="description" data-lang="zh"><%= office.description.zh %></p>
+                        <p class="description" data-lang="en" style="display: none;"><%= office.description.en %></p>
+                    </div>
                 </div>
-                <div class="office-info">
-                    <h3><%= companyInfo.global.name %></h3>
-                    <p class="location"><i class="fas fa-map-marker-alt"></i> <%= companyInfo.global.location %></p>
-                    <p class="description"><%= companyInfo.global.description %></p>
-                </div>
-            </div>
+            <% }); %>
         </div>
     </section>
 
     <!-- 中国业务 -->
     <section id="china" class="china-section">
         <div class="container">
-            <h2>中国业务</h2>
+            <h2 data-lang="zh"><%= content.offices.china.title.zh %></h2>
+            <h2 data-lang="en" style="display: none;"><%= content.offices.china.title.en %></h2>
             <div class="office-card">
                 <div class="office-image">
                     <img src="/images/sz-office.jpg" alt="Shenzhen Office">
                 </div>
                 <div class="office-info">
-                    <h3><%= companyInfo.china.name %></h3>
-                    <p class="location"><i class="fas fa-map-marker-alt"></i> <%= companyInfo.china.location %></p>
-                    <p class="description"><%= companyInfo.china.description %></p>
+                    <h3><%= content.offices.china.name %></h3>
+                    <p class="location"><i class="fas fa-map-marker-alt"></i> <%= content.offices.china.location %></p>
+                    <p class="description" data-lang="zh"><%= content.offices.china.description.zh %></p>
+                    <p class="description" data-lang="en" style="display: none;"><%= content.offices.china.description.en %></p>
                 </div>
             </div>
         </div>
@@ -159,14 +141,14 @@
             <div class="footer-content">
                 <div class="footer-info">
                     <h3>Kings Club</h3>
-                    <p>全球领先的电影科技公司</p>
+                    <p data-lang="zh"><%= content.site.description.zh %></p>
+                    <p data-lang="en" style="display: none;"><%= content.site.description.en %></p>
                 </div>
                 <div class="footer-links">
-                    <a href="#home">首页</a>
-                    <a href="#about">关于我们</a>
-                    <a href="#global">全球业务</a>
-                    <a href="#china">中国业务</a>
-                    <a href="#contact">联系我们</a>
+                    <% Object.keys(content.nav).forEach(function(key) { %>
+                        <a href="#<%= key %>" data-lang="zh"><%= content.nav[key].zh %></a>
+                        <a href="#<%= key %>" data-lang="en" style="display: none;"><%= content.nav[key].en %></a>
+                    <% }); %>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -176,5 +158,6 @@
     </footer>
 
     <script src="/js/main.js"></script>
+    <script src="/js/cursor.js"></script>
 </body>
 </html> 
