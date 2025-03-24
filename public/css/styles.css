@@ -181,22 +181,30 @@ body {
     color: var(--primary-color);
 }
 
+/* 轮播图箭头按钮 */
 .slider-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: var(--light-text);
-    border: none;
+    background: transparent; /* 完全透明背景 */
+    color: rgba(255, 255, 255, 0.6); /* 半透明白色图标 */
+    border: none; /* 移除边框 */
     width: 50px;
     height: 50px;
     border-radius: 50%;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .slider-arrow:hover {
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 247, 255, 0.1); /* 悬停时显示淡蓝色背景 */
+    border: 2px solid #00f7ff; /* 悬停时显示荧光蓝色边框 */
+    box-shadow: 0 0 15px rgba(0, 247, 255, 0.3); /* 发光效果 */
+    color: #00f7ff; /* 图标变为荧光蓝色 */
+    transform: translateY(-50%) scale(1.1); /* 略微放大效果 */
 }
 
 .prev {
@@ -205,6 +213,12 @@ body {
 
 .next {
     right: 20px;
+}
+
+/* 图标样式 */
+.slider-arrow i {
+    font-size: 24px;
+    line-height: 1;
 }
 
 .slider-indicators {
@@ -448,6 +462,15 @@ body {
     .location,
     .description {
         font-size: 1rem;
+    }
+
+    .slider-arrow {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .slider-arrow i {
+        font-size: 20px;
     }
 }
 
@@ -813,41 +836,39 @@ body {
     }
 }
 
-/* 鼠标跟随效果 */
-.cursor-dot {
-    width: 5px;
-    height: 5px;
-    background-color: #00f7ff;
-    position: fixed;
-    border-radius: 50%;
-    pointer-events: none;
-    transition: transform 0.15s ease;
-    z-index: 9999;
-}
-
+/* 鼠标跟随效果 - 默认在移动端隐藏 */
+.cursor-dot,
 .cursor-outline {
-    width: 30px;
-    height: 30px;
-    border: 2px solid #00f7ff;
-    position: fixed;
-    border-radius: 50%;
-    pointer-events: none;
-    transition: transform 0.15s ease;
-    z-index: 9998;
-    box-shadow: 0 0 15px rgba(0, 247, 255, 0.3);
+    display: none;
 }
 
-/* 当鼠标悬停在可点击元素上时的效果 */
-a:hover ~ .cursor-dot,
-button:hover ~ .cursor-dot {
-    transform: scale(2);
-    background-color: #00f7ff;
-    box-shadow: 0 0 20px rgba(0, 247, 255, 0.5);
-}
+/* 在桌面端显示鼠标跟随效果 */
+@media (min-width: 1024px) {
+    .cursor-dot,
+    .cursor-outline {
+        display: block;
+        opacity: 0; /* 初始状态为隐藏 */
+        transition: opacity 0.8s ease, transform 0.15s ease; /* 添加平滑的淡入淡出效果 */
+    }
+    
+    .cursor-dot {
+        width: 5px;
+        height: 5px;
+        background-color: #00f7ff;
+        position: fixed;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+    }
 
-a:hover ~ .cursor-outline,
-button:hover ~ .cursor-outline {
-    transform: scale(1.5);
-    border-color: #00f7ff;
-    box-shadow: 0 0 20px rgba(0, 247, 255, 0.3);
+    .cursor-outline {
+        width: 30px;
+        height: 30px;
+        border: 2px solid #00f7ff;
+        position: fixed;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9998;
+        box-shadow: 0 0 15px rgba(0, 247, 255, 0.3);
+    }
 } 
