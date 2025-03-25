@@ -32,34 +32,37 @@
     </nav>
 
     <!-- 主页轮播 -->
-    <section id="home" class="hero-slider">
-        <div class="slider-container">
-            <% content.hero.slides.forEach(function(slide, index) { %>
-                <div class="slide <%= index === 0 ? 'active' : '' %>">
-                    <img src="<%= slide.image %>" alt="<%= slide.title.zh %>">
-                    <div class="slide-content">
-                        <h1 data-lang="zh"><%= slide.title.zh %></h1>
-                        <h1 data-lang="en" style="display: none;"><%= slide.title.en %></h1>
-                        <p data-lang="zh"><%= slide.description.zh %></p>
-                        <p data-lang="en" style="display: none;"><%= slide.description.en %></p>
-                        <% if (index === 0) { %>
-                            <div class="hero-social-links">
-                                <% Object.entries(content.social).forEach(function([platform, data]) { %>
-                                    <a href="<%= data.url %>" class="social-icon <%= platform %>">
-                                        <i class="<%= data.icon %>"></i>
-                                        <span><%= data.name %></span>
-                                    </a>
-                                <% }); %>
-                            </div>
-                        <% } %>
-                    </div>
-                </div>
-            <% }); %>
-            <button class="slider-arrow prev"><i class="fas fa-chevron-left"></i></button>
-            <button class="slider-arrow next"><i class="fas fa-chevron-right"></i></button>
-            <div class="slider-indicators"></div>
+    <div class="hero-section">
+        <video class="hero-video" autoplay loop muted playsinline>
+            <source src="<%= content.hero.video.path %>" type="video/mp4">
+        </video>
+        
+        <!-- 添加中间悬浮文字 -->
+        <div class="hero-text">
+            <h1>国王俱乐部</h1>
+            <h2>永不止步</h2>
         </div>
-    </section>
+        
+        <!-- 修改社交媒体链接部分 -->
+        <div class="hero-social-links">
+            <a href="#" class="social-icon">
+                <i class="fas fa-book"></i>
+                <span>小红书</span>
+            </a>
+            <a href="#" class="social-icon">
+                <i class="fab fa-tiktok"></i>
+                <span>抖音</span>
+            </a>
+            <a href="#" class="social-icon">
+                <i class="fab fa-instagram"></i>
+                <span>Instagram</span>
+            </a>
+            <a href="#" class="social-icon">
+                <i class="fab fa-youtube"></i>
+                <span>YouTube</span>
+            </a>
+        </div>
+    </div>
 
     
     <!-- 特色板块 -->
