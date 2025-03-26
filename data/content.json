@@ -1,13 +1,18 @@
 {
     "site": {
         "title": {
-            "zh": "Kings Club - 全球领先的电影科技公司",
-            "en": "Kings Club - Global Leading Film Technology Company"
+            "zh": "国王俱乐部",
+            "en": "Kings Club"
+        },
+        "shortTitle": {
+            "zh": "国王俱乐部",
+            "en": "Kings Club"
         },
         "description": {
             "zh": "全球领先的电影科技公司",
             "en": "Global Leading Film Technology Company"
-        }
+        },
+        "favicon": "/images/logo/favicon.png"
     },
     "nav": {
         "home": {

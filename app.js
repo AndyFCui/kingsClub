@@ -53,9 +53,20 @@ app.use((req, res, next) => {
     next();
 });
 
+// 添加请求日志中间件，过滤掉favicon请求
+app.use((req, res, next) => {
+  if (!req.path.includes('favicon')) {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
+  }
+  next();
+});
+
 // 路由
 app.get('/', (req, res) => {
-    res.render('index', { content });
+    res.render('index', { 
+        content: content,
+        currentLang: 'zh'  // 添加默认语言参数
+    });
 });
 
 // 添加业务页面路由
