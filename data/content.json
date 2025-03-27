@@ -56,16 +56,6 @@
             "image": "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
         }
     ],
-    "about": {
-        "title": {
-            "zh": "关于我们",
-            "en": "About Us"
-        },
-        "content": {
-            "zh": "Kings Club是一个全球领先的电影科技公司，致力于为观众提供畅快的观影体验与科技服务。我们通过创新的技术和优质的内容，打造沉浸式的观影体验，引领电影科技的未来发展。",
-            "en": "Kings Club is a global leading film technology company dedicated to providing audiences with an enjoyable viewing experience and technological services. Through innovative technology and quality content, we create immersive viewing experiences and lead the future development of film technology."
-        }
-    },
     "social": {
         "xiaohongshu": {
             "name": "小红书",

@@ -64,18 +64,22 @@ app.use((req, res, next) => {
 // 路由
 app.get('/', (req, res) => {
     res.render('index', { 
-        content: content,
-        currentLang: 'zh'  // 添加默认语言参数
+        content: content
     });
 });
 
-// 添加业务页面路由
-app.get('/global', (req, res) => {
-    res.render('business', { content });
+// 关于我们路由
+app.get('/about', (req, res) => {
+    res.render('about', { 
+        content: content
+    });
 });
 
-app.get('/china', (req, res) => {
-    res.render('business', { content });
+// 联系我们路由
+app.get('/contact', (req, res) => {
+    res.render('contact', { 
+        content: content
+    });
 });
 
 // 启动服务器

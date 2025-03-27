@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 更新为PNG格式的favicon -->
+    <link rel="icon" type="image/png" href="<%= content.site.favicon %>">
+    <link rel="shortcut icon" type="image/png" href="<%= content.site.favicon %>">
+    
+    <!-- 使用默认中文标题 -->
+    <title><%= content.site.title.zh %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- 添加鼠标跟随元素 -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="/">
+                    <img src="/images/logo/logo_white.png" alt="Kings Club Logo">
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="/">国王俱乐部</a>
+                <a href="/about">关于我们</a>
+                <a href="/contact">联系我们</a>
+                <div class="lang-toggle" id="langToggle">
+                    <span>中</span>
+                    <span>EN</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 这里是 about 页面的主要内容区域 -->
+    <main>
+        <div class="about-hero">
+            <h1 data-lang="zh">关于我们</h1>
+            <h1 data-lang="en" style="display: none;">About Us</h1>
+            <p data-lang="zh">Kings Club 是一家全球化的综合企业，业务覆盖文化传媒、科技电影及慈善公益三大领域</p>
+            <p data-lang="en" style="display: none;">Kings Club is a global enterprise covering three major areas: cultural media, film technology, and charitable causes</p>
+        </div>
+
+        <div class="business-section">
+            <div class="card">
+                <p class="card-title" data-lang="zh">中国业务</p>
+                <p class="card-title" data-lang="en" style="display: none;">China Business</p>
+                <h3 data-lang="zh">给他爱(深圳)文化有限公司</h3>
+                <h3 data-lang="en" style="display: none;">Getai (Shenzhen) Culture Co., Ltd</h3>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p data-lang="zh">深圳，广东，中华人民共和国</p>
+                    <p data-lang="en" style="display: none;">Shenzhen, Guangdong, China</p>
+                </div>
+                <p class="small-desc" data-lang="zh">
+                    专注于MCN领域的创新发展
+                    • 网红孵化与培训
+                    • 内容创作与运营
+                    • 品牌营销策划
+                </p>
+                <p class="small-desc" data-lang="en" style="display: none;">
+                    Focusing on innovative development in MCN field
+                    • KOL Incubation & Training
+                    • Content Creation & Operation
+                    • Brand Marketing Planning
+                </p>
+                <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <p class="card-title" data-lang="zh">美国业务</p>
+                <p class="card-title" data-lang="en" style="display: none;">US Business</p>
+                <h3>King 7 Club</h3>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p data-lang="zh">洛杉矶，加利福尼亚，美国</p>
+                    <p data-lang="en" style="display: none;">Los Angeles, California, USA</p>
+                </div>
+                <p class="small-desc" data-lang="zh">
+                    创新科技电影公司
+                    • 电影技术研发
+                    • 视觉特效制作
+                    • 影视内容制作
+                </p>
+                <p class="small-desc" data-lang="en" style="display: none;">
+                    Innovative Film Technology Company
+                    • Film Technology R&D
+                    • Visual Effects Production
+                    • Film & TV Content Production
+                </p>
+                <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <p class="card-title">Kings Club Charity</p>
+                <div class="location">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p data-lang="zh">洛杉矶，加利福尼亚，美国</p>
+                    <p data-lang="en" style="display: none;">Los Angeles, California, USA</p>
+                </div>
+                <p class="small-desc" data-lang="zh">
+                    致力于社会公益事业
+                    • 教育支持计划
+                    • 环境保护项目
+                    • 社区发展援助
+                </p>
+                <p class="small-desc" data-lang="en" style="display: none;">
+                    Dedicated to Social Welfare
+                    • Education Support Program
+                    • Environmental Protection Projects
+                    • Community Development Aid
+                </p>
+                <div class="go-corner">
+                    <div class="go-arrow">→</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 在 business-section 后添加时间轴部分 -->
+        <div class="timeline-section">
+            <h2 data-lang="zh">发展历程</h2>
+            <h2 data-lang="en" style="display: none;">Development History</h2>
+            
+            <div class="timeline">
+                <!-- 添加小人动画元素 -->
+                <div class="running-man"></div>
+                
+                <div class="timeline-runner"></div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 data-lang="zh">公司建立</h3>
+                        <h3 data-lang="en" style="display: none;">Company Establishment</h3>
+                        <p data-lang="zh">2025年2月1日</p>
+                        <p data-lang="en" style="display: none;">February 1, 2025</p>
+                        <p data-lang="zh">Kings Club 正式开启筹建</p>
+                        <p data-lang="en" style="display: none;">Kings Club officially initiated</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>King 7 Club</h3>
+                        <p data-lang="zh">2025年3月1日</p>
+                        <p data-lang="en" style="display: none;">March 1, 2025</p>
+                        <p data-lang="zh">洛杉矶科技电影公司成立</p>
+                        <p data-lang="en" style="display: none;">Los Angeles Film Technology Company Established</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 data-lang="zh">给他爱文化</h3>
+                        <h3 data-lang="en" style="display: none;">Getai Culture</h3>
+                        <p data-lang="zh">2025年3月7日</p>
+                        <p data-lang="en" style="display: none;">March 7, 2025</p>
+                        <p data-lang="zh">深圳文化公司成立</p>
+                        <p data-lang="en" style="display: none;">Shenzhen Culture Company Established</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Kings Club Charity</h3>
+                        <p data-lang="zh">2025年3月10日</p>
+                        <p data-lang="en" style="display: none;">March 10, 2025</p>
+                        <p data-lang="zh">慈善基金会成立</p>
+                        <p data-lang="en" style="display: none;">Charity Foundation Established</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3 data-lang="zh">MCN直播工会</h3>
+                        <h3 data-lang="en" style="display: none;">MCN Live Streaming Guild</h3>
+                        <p data-lang="zh">2025年3月26日</p>
+                        <p data-lang="en" style="display: none;">March 26, 2025</p>
+                        <p data-lang="zh">MCN直播工会正式成立</p>
+                        <p data-lang="en" style="display: none;">MCN Live Streaming Guild Officially Established</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Kings Club</h3>
+                    <p data-lang="zh"><%= content.site.description.zh %></p>
+                    <p data-lang="en" style="display: none;"><%= content.site.description.en %></p>
+                </div>
+                <div class="footer-links">
+                    <a href="/" data-lang="zh">国王俱乐部</a>
+                    <a href="/" data-lang="en" style="display: none;">Kings Club</a>
+                    <a href="/about" data-lang="zh">关于我们</a>
+                    <a href="/about" data-lang="en" style="display: none;">About Us</a>
+                    <a href="/contact" data-lang="zh">联系我们</a>
+                    <a href="/contact" data-lang="en" style="display: none;">Contact Us</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Kings Club. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/cursor.js"></script>
+    <script src="/js/navigation.js"></script>
+</body>
+</html> 
