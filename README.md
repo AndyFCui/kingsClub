@@ -1,26 +1,50 @@
-# Kings Club Website
+# Kings Club Official Website
 
-Kings Club是一个全球性的创作者平台，总部位于美国洛杉矶，并在中国深圳设有分支机构。我们的网站展示了公司的全球业务布局、社交媒体平台以及公司文化。
+Kings Club 官方网站项目，集成了视频展示、业务介绍、企业发展历程等功能。
 
 ## 功能特点
 
-- 响应式设计，适配各种设备
-- 全屏轮播图展示
-- 公司介绍和统计数据
-- 全球业务布局展示
-- 社交媒体平台链接
-- 平滑滚动效果
-- 数字增长动画
-- 导航栏滚动效果
+### 1. 多语言支持
+- 中英文切换功能
+- 统一的语言管理系统
+- 内容集中在 content.json 管理
+
+### 2. 主页设计
+- 全屏视频背景
+- 社交媒体链接（小红书、抖音、Instagram、YouTube）
+- 悬浮动画效果
+- 响应式导航栏
+
+### 3. 关于我们页面
+- 三大业务板块展示
+  - 给他爱(深圳)文化有限公司（MCN业务）
+  - King 7 Club（科技电影）
+  - Kings Club Charity（慈善基金会）
+- 企业发展时间轴
+- 交互式卡片设计
+- 地址信息展示
+
+### 4. 联系页面
+- 动态邮件动画效果
+- 合作伙伴招募信息
+- 三大合作领域展示
+  - 影视制作
+  - 技术研发
+  - MCN合作
+
+### 5. 视觉效果
+- 卡片悬浮动画
+- 信封加载动画
+- 时间轴动画
+- 响应式布局适配
 
 ## 技术栈
 
-- Node.js
-- Express.js
-- EJS模板引擎
-- HTML5
-- CSS3
-- JavaScript (ES6+)
+- Frontend: HTML5, CSS3, JavaScript
+- Backend: Node.js, Express
+- Template Engine: EJS
+- Animation: CSS Animations
+- Responsive Design: Media Queries
 
 ## 安装和运行
 
