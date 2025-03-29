@@ -40,8 +40,9 @@ main {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1rem 0;
-    background: rgba(0, 0, 0, 0.8);
+    background-color: #1a1a1a;
+    padding: 0.5rem 1rem;
+    height: 120px;
     backdrop-filter: blur(10px);
     z-index: 1000;
     transition: all 0.3s ease;
@@ -77,10 +78,26 @@ main {
 
 .nav-links {
     display: flex;
-    gap: 2rem;
-    margin-left: 2rem;
     align-items: center;
     height: 100%;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    line-height: 0.8;
+}
+
+.nav-text-zh {
+    font-size: 1rem;
+    margin-bottom: -30px;
+}
+
+.nav-text-en {
+    font-size: 0.8rem;
+    opacity: 0.8;
 }
 
 .nav-links a {
@@ -1600,5 +1617,47 @@ main {
     
     .email {
         font-size: 1rem;
+    }
+}
+
+/* 调整联系页面宽度 */
+.contact-wrapper {
+    max-width: 900px; /* 从1200px减小到900px */
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 调整邮件部分宽度 */
+.email-section {
+    max-width: 600px; /* 设置最大宽度 */
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+/* 调整招募卡片布局 */
+.partner-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* 减小卡片之间的间距 */
+    margin-top: 40px;
+}
+
+.partner-card {
+    padding: 25px; /* 稍微减小内边距 */
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .contact-wrapper {
+        padding: 0 15px;
+    }
+
+    .partner-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px; /* 移动端下限制单列宽度 */
+        margin: 40px auto 0;
     }
 } 

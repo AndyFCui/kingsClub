@@ -1,0 +1,57 @@
+/* 导航栏样式 */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.nav-text-zh {
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+.nav-text-en {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* 悬浮效果 */
+.nav-link:hover {
+    transform: translateY(-2px);
+}
+
+.nav-link:hover .nav-text-zh,
+.nav-link:hover .nav-text-en {
+    color: #00ffff;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .nav-link {
+        font-size: 0.9rem;
+    }
+
+    .nav-text-en {
+        font-size: 0.7rem;
+    }
+} 
