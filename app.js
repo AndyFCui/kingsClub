@@ -63,8 +63,12 @@ app.use((req, res, next) => {
 
 // 路由
 app.get('/', (req, res) => {
-    res.render('index', { 
-        content: content
+    // 默认语言设置为中文
+    const lang = req.query.lang || 'zh';  // 从查询参数获取语言设置，默认为中文
+    
+    res.render('index', {
+        content: content,
+        lang: lang  // 添加lang变量传递给模板
     });
 });
 

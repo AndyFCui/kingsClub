@@ -31,6 +31,10 @@
     "hero": {
         "video": {
             "path": "/images/banner/warmup.mp4"
+        },
+        "title": {
+            "zh": "国王俱乐部 无限超越",
+            "en": "Kings Club Infinite Beyond"
         }
     },
     "features": [
@@ -65,7 +69,7 @@
         "douyin": {
             "name": "抖音",
             "icon": "fab fa-tiktok",
-            "url": "https://www.douyin.com/user/your-profile"
+            "url": "https://v.douyin.com/gmHRCppft9I"
         },
         "instagram": {
             "name": "Instagram",
