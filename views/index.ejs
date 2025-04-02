@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="<%= lang %>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +9,14 @@
     <link rel="shortcut icon" type="image/png" href="<%= content.site.favicon %>">
     
     <!-- 使用默认中文标题 -->
-    <title><%= content.site.title.zh %></title>
+    <title><%= content.site.title[lang] %></title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- 添加默认语言标记 -->
+    <script>
+        window.defaultLang = '<%= defaultLang %>';
+        window.currentLang = '<%= lang %>';
+    </script>
 </head>
 <body>
     <!-- 引入动画元素 -->

@@ -453,6 +453,28 @@ main {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+.footer-bottom .footer-text {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;  /* 控制两段文字之间的间距 */
+    align-items: center;
+}
+
+.footer-bottom p {
+    margin: 0;  /* 移除段落的默认边距 */
+}
+
+.footer-bottom a {
+    color: #00ffff;  /* 荧光蓝色 */
+    text-decoration: none;  /* 移除下划线 */
+    transition: all 0.3s ease;  /* 添加过渡效果 */
+}
+
+.footer-bottom a:hover {
+    text-shadow: 0 0 10px #00ffff;  /* 悬停时添加荧光效果 */
+    color: #00ffff;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
     .about-section {

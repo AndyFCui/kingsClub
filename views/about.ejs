@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="<%= lang %>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,16 +9,23 @@
     <link rel="shortcut icon" type="image/png" href="<%= content.site.favicon %>">
     
     <!-- 使用默认中文标题 -->
-    <title><%= content.site.title.zh %></title>
+    <title><%= content.site.title[lang] %></title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        // 将当前语言设置为全局变量
+        window.currentLang = '<%= lang %>';
+    </script>
 </head>
 <body>
     <!-- 引入动画元素 -->
     <%- include('partials/animations') %>
     
-    <!-- 引入导航栏 -->
-    <%- include('partials/nav') %>
+    <!-- 引入导航栏，并传递语言参数 -->
+    <%- include('partials/nav', {lang: lang}) %>
+
+    <!-- 引入页头，并传递语言参数 -->
+    <%- include('partials/header', {lang: lang}) %>
 
     <!-- 这里是 about 页面的主要内容区域 -->
     <main>
@@ -31,6 +38,7 @@
 
         <div class="business-section">
             <div class="card">
+                <!-- 中国 给他爱公司 -->
                 <p class="card-title" data-lang="zh">中国业务</p>
                 <p class="card-title" data-lang="en" style="display: none;">China Business</p>
                 <h3 data-lang="zh">给他爱(深圳)文化有限公司</h3>
@@ -57,6 +65,7 @@
                 </div>
             </div>
 
+            <!-- 美国业务 -->
             <div class="card">
                 <p class="card-title" data-lang="zh">美国业务</p>
                 <p class="card-title" data-lang="en" style="display: none;">US Business</p>
@@ -82,9 +91,12 @@
                     <div class="go-arrow">→</div>
                 </div>
             </div>
-
+            
+            <!-- 慈善基金会 -->
             <div class="card">
-                <p class="card-title">Kings Club Charity</p>
+                <p class="card-title" data-lang="zh">美国业务</p>
+                <p class="card-title" data-lang="en" style="display: none;">US Business</p>
+                <h3>Kings Club Charity</h3>
                 <div class="location">
                     <i class="fas fa-map-marker-alt"></i>
                     <p data-lang="zh">洛杉矶，加利福尼亚，美国</p>
@@ -180,8 +192,8 @@
         </div>
     </main>
 
-    <!-- 引入页脚 -->
-    <%- include('partials/footer') %>
+    <!-- 引入页脚，并传递语言参数 -->
+    <%- include('partials/footer', {lang: lang}) %>
 
     <script src="/js/main.js"></script>
     <script src="/js/cursor.js"></script>

@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -61,29 +63,60 @@ app.use((req, res, next) => {
   next();
 });
 
-// 路由
-app.get('/', (req, res) => {
-    // 默认语言设置为中文
-    const lang = req.query.lang || 'zh';  // 从查询参数获取语言设置，默认为中文
+// 添加AWS SDK用于获取CloudFront查看者国家/地区
+app.use((req, res, next) => {
+    // 从CloudFront头部获取国家/地区代码
+    const countryCode = req.headers['cloudfront-viewer-country'] || 'US';
     
-    res.render('index', {
-        content: content,
-        lang: lang  // 添加lang变量传递给模板
-    });
+    // 设置默认语言
+    const defaultLang = countryCode === 'CN' ? 'zh' : 'en';
+    
+    // 将默认语言添加到res.locals，使其在所有模板中可用
+    res.locals.defaultLang = defaultLang;
+    next();
+});
+
+app.use(cookieParser());
+app.use(bodyParser.json());
+
+// 语言中间件
+app.use((req, res, next) => {
+    // 从cookie获取语言设置
+    const userLang = req.cookies.userLang || 'zh';
+    
+    // 设置locals
+    res.locals = {
+        lang: userLang,
+        content: content
+    };
+    
+    console.log('Current language:', userLang, 'Cookie:', req.cookies); // 调试用
+    next();
+});
+
+// 主页路由
+app.get('/', (req, res) => {
+    res.render('index');
 });
 
 // 关于我们路由
 app.get('/about', (req, res) => {
-    res.render('about', { 
-        content: content
-    });
+    res.render('about');
 });
 
 // 联系我们路由
 app.get('/contact', (req, res) => {
-    res.render('contact', { 
-        content: content
+    res.render('contact');
+});
+
+// 语言切换API
+app.post('/api/switch-language', express.json(), (req, res) => {
+    const { lang } = req.body;
+    res.cookie('userLang', lang, {
+        maxAge: 365 * 24 * 60 * 60 * 1000,
+        path: '/'
     });
+    res.json({ success: true });
 });
 
 // 启动服务器

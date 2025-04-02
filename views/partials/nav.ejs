@@ -7,20 +7,20 @@
         </div>
     <div class="nav-links">
         <a href="/" class="nav-item">
-            <div class="nav-text-zh">国王俱乐部</div>
-            <div class="nav-text-en">Kings Club</div>
+            <div class="nav-text-zh" <%= lang === 'zh' ? 'style="display:block"' : 'style="display:none"' %>>国王俱乐部</div>
+            <div class="nav-text-en" <%= lang === 'en' ? 'style="display:block"' : 'style="display:none"' %>>Kings Club</div>
         </a>
         <a href="/about" class="nav-item">
-            <div class="nav-text-zh">关于我们</div>
-            <div class="nav-text-en">About Us</div>
+            <div class="nav-text-zh" <%= lang === 'zh' ? 'style="display:block"' : 'style="display:none"' %>>关于我们</div>
+            <div class="nav-text-en" <%= lang === 'en' ? 'style="display:block"' : 'style="display:none"' %>>About Us</div>
         </a>
         <a href="/contact" class="nav-item">
-            <div class="nav-text-zh">联系我们</div>
-            <div class="nav-text-en">Contact</div>
+            <div class="nav-text-zh" <%= lang === 'zh' ? 'style="display:block"' : 'style="display:none"' %>>联系我们</div>
+            <div class="nav-text-en" <%= lang === 'en' ? 'style="display:block"' : 'style="display:none"' %>>Contact</div>
         </a>
     </div>
     <div class="lang-toggle" id="langToggle">
-        <span>中</span>
-        <span>EN</span>
+        <span class="<%= lang === 'zh' ? 'active' : '' %>">中</span>
+        <span class="<%= lang === 'en' ? 'active' : '' %>">EN</span>
     </div>
 </nav> 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="<%= lang %>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
     <link rel="shortcut icon" type="image/png" href="<%= content.site.favicon %>">
     
     <!-- 使用默认中文标题 -->
-    <title><%= content.site.title.zh %></title>
+    <title><%= content.site.title[lang] %></title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -17,8 +17,11 @@
     <!-- 引入动画元素 -->
     <%- include('partials/animations') %>
     
-    <!-- 引入导航栏 -->
-    <%- include('partials/nav') %>
+    <!-- 引入导航栏，并传递语言参数 -->
+    <%- include('partials/nav', {lang: lang}) %>
+
+    <!-- 引入页头，并传递语言参数 -->
+    <%- include('partials/header', {lang: lang}) %>
 
     <!-- 主要内容区域 -->
     <main class="contact-main">
@@ -78,8 +81,8 @@
         </div>
     </main>
 
-    <!-- 引入页脚 -->
-    <%- include('partials/footer') %>
+    <!-- 引入页脚，并传递语言参数 -->
+    <%- include('partials/footer', {lang: lang}) %>
 
     <script src="/js/main.js"></script>
     <script src="/js/cursor.js"></script>
