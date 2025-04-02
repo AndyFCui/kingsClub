@@ -2,10 +2,10 @@
   "name": "kings-club",
   "version": "1.0.0",
   "description": "Kings Club Official Website",
-  "main": "app.js",
+  "main": "start.js",
   "scripts": {
-    "start": "node app.js",
-    "build": "echo 'Build completed'",
+    "start": "node start.js",
+    "build": "npm ci",
     "dev": "nodemon app.js",
     "test": "echo \"No test specified\""
   },
@@ -27,7 +27,7 @@
     "nodemon": "^3.0.2"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": "16.x"
   },
   "repository": {
     "type": "git",

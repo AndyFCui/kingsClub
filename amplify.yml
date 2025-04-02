@@ -1,13 +1,15 @@
 version: 1
 applications:
-  - frontend:
+  - backend:
       phases:
-        preBuild:
-          commands:
-            - npm ci
         build:
           commands:
-            - npm run build
+            - npm ci
+    frontend:
+      phases:
+        build:
+          commands:
+            - npm ci
       artifacts:
         baseDirectory: /
         files:
