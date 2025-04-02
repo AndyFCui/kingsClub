@@ -120,6 +120,23 @@ app.post('/api/switch-language', express.json(), (req, res) => {
     res.json({ success: true });
 });
 
+// 404 错误处理
+app.use((req, res, next) => {
+    res.status(404).render('error', {
+        content: content,
+        lang: res.locals.lang || 'zh'
+    });
+});
+
+// 500 错误处理
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).render('error', {
+        content: content,
+        lang: res.locals.lang || 'zh'
+    });
+});
+
 // 启动服务器
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

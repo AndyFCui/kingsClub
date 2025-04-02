@@ -1682,4 +1682,62 @@ main {
         max-width: 400px; /* 移动端下限制单列宽度 */
         margin: 40px auto 0;
     }
+}
+
+/* 错误页面样式 */
+.error-container {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+.error-content {
+    max-width: 600px;
+}
+
+.error-content h1 {
+    font-size: 8rem;
+    margin: 0;
+    background: linear-gradient(45deg, #00ffff, #0066ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.error-content h2 {
+    font-size: 2rem;
+    margin: 1rem 0;
+    color: #fff;
+}
+
+.error-content p {
+    color: #ccc;
+    margin-bottom: 2rem;
+}
+
+.error-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: linear-gradient(45deg, #00ffff, #0066ff);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.error-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+    }
+    to {
+        text-shadow: 0 0 20px #0066ff, 0 0 30px #0066ff;
+    }
 } 
