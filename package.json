@@ -5,9 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "build": "npm install",
+    "build": "echo 'Build completed'",
     "dev": "nodemon app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"No test specified\""
   },
   "keywords": [
     "kings-club",
@@ -31,6 +31,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yourusername/kingsclub.git"
+    "url": "git+https://github.com/AndyFCui/kingsclub.git"
   }
 }

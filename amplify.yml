@@ -1,17 +1,23 @@
 version: 1
-frontend:
-  phases:
-    preBuild:
-      commands:
-        - npm ci  # 使用 ci 而不是 install，更适合CI/CD环境
-    build:
-      commands:
-        - npm run build
-  artifacts:
-    baseDirectory: /
-    files:
-      - '**/*'
-  cache:
-    paths:
-      - node_modules/**/*
-      - .next/cache/**/* 
+applications:
+  - frontend:
+      phases:
+        preBuild:
+          commands:
+            - npm ci
+        build:
+          commands:
+            - npm run build
+      artifacts:
+        baseDirectory: /
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - node_modules/**/*
+    appRoot: /
+    customHeaders:
+      - pattern: '**/*'
+        headers:
+          - key: 'Cache-Control'
+            value: 'max-age=0, no-cache, no-store, must-revalidate' 
