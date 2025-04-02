@@ -87,6 +87,7 @@ app.use((req, res, next) => {
     // 设置locals
     res.locals = {
         lang: userLang,
+        defaultLang: 'zh',  // 添加默认语言
         content: content
     };
     

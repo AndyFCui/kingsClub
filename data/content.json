@@ -1,18 +1,18 @@
 {
     "site": {
         "title": {
-            "zh": "国王俱乐部",
-            "en": "Kings Club"
+            "zh": "国王俱乐部-全球领先的电影科技公司",
+            "en": "Kings Club - Global Leading Film Technology Company"
         },
         "shortTitle": {
-            "zh": "国王俱乐部",
-            "en": "Kings Club"
+            "zh": "国王俱乐部-全球领先的电影科技公司",
+            "en": "Kings Club-Global Leading Film Technology Company"
         },
         "description": {
             "zh": "全球领先的电影科技公司",
             "en": "Global Leading Film Technology Company"
         },
-        "favicon": "/images/logo/favicon.png"
+        "favicon": "/images/logo/favicon.ico"
     },
     "nav": {
         "home": {
@@ -64,7 +64,7 @@
         "xiaohongshu": {
             "name": "小红书",
             "icon": "fas fa-book",
-            "url": "https://www.xiaohongshu.com/user/profile/your-profile"
+            "url": "https://www.xiaohongshu.com/user/profile/5bc6321aa5ec3a00015b10bf"
         },
         "douyin": {
             "name": "抖音",
@@ -74,12 +74,12 @@
         "instagram": {
             "name": "Instagram",
             "icon": "fab fa-instagram",
-            "url": "https://www.instagram.com/your-profile"
+            "url": "https://www.instagram.com/kingsevenclub/"
         },
         "youtube": {
             "name": "YouTube",
             "icon": "fab fa-youtube",
-            "url": "https://www.youtube.com/your-channel"
+            "url": "https://www.youtube.com/@king7club"
         }
     }
 } 

@@ -1,23 +1,6 @@
 <!DOCTYPE html>
 <html lang="<%= lang %>">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- 更新为PNG格式的favicon -->
-    <link rel="icon" type="image/png" href="<%= content.site.favicon %>">
-    <link rel="shortcut icon" type="image/png" href="<%= content.site.favicon %>">
-    
-    <!-- 使用默认中文标题 -->
-    <title><%= content.site.title[lang] %></title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- 添加默认语言标记 -->
-    <script>
-        window.defaultLang = '<%= defaultLang %>';
-        window.currentLang = '<%= lang %>';
-    </script>
-</head>
+<%- include('partials/header') %>
 <body>
     <!-- 引入动画元素 -->
     <%- include('partials/animations') %>
@@ -42,7 +25,7 @@
         
         <!-- 修改社交媒体链接部分 -->
         <div class="hero-social-links">
-            <a href="#" class="social-icon">
+            <a href="<%= content.social.xiaohongshu.url %>" class="social-icon">
                 <i class="fas fa-book"></i>
                 <span>小红书</span>
             </a>
@@ -50,11 +33,11 @@
                 <i class="fab fa-tiktok"></i>
                 <span>抖音</span>
             </a>
-            <a href="#" class="social-icon">
+            <a href="<%= content.social.instagram.url %>" class="social-icon">
                 <i class="fab fa-instagram"></i>
                 <span>Instagram</span>
             </a>
-            <a href="#" class="social-icon">
+            <a href="<%= content.social.youtube.url %>" class="social-icon">
                 <i class="fab fa-youtube"></i>
                 <span>YouTube</span>
             </a>
