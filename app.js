@@ -137,7 +137,4 @@ app.use((err, req, res, next) => {
     });
 });
 
-// 启动服务器
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
-}); 
+module.exports = app; 
